@@ -17,7 +17,6 @@ export class RegisterUserComponent {
   constructor(private store: Store<AppState>) { }
 
   onSubmit(): void {
-    console.log('Register button clicked');
     console.log(this.username)
     console.log(this.name)
     console.log(this.password)
