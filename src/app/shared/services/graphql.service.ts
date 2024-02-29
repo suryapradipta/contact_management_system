@@ -83,4 +83,22 @@ export class GraphqlService {
       }
     })
   }
+
+  updateUser(token: string, name: string, password: string) {
+    return this.apollo.mutate<any>({
+      mutation: gql `
+        mutation  updateUser($token: String, $request: UpdateUserRequest) {
+          updateUser(token: $token, request: $request) {
+            success
+            message
+          }
+        }
+      `,
+      variables: {
+        token,
+        name,
+        password
+      }
+    })
+  }
 }

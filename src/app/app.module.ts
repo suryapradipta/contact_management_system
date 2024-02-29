@@ -18,6 +18,7 @@ import {authReducer} from "./shared/state/auth/auth.reducer";
 import {AuthEffect} from "./shared/state/auth/auth.effect";
 import { AuthFeedbackComponent } from './pages/login/auth-feedback/auth-feedback.component';
 import { HeaderComponent } from './pages/header/header.component';
+import { UpdateUserComponent } from './pages/update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HeaderComponent } from './pages/header/header.component';
     RegistrationResponseComponent,
     LoginComponent,
     AuthFeedbackComponent,
-    HeaderComponent
+    HeaderComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,
