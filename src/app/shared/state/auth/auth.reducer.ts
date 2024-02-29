@@ -12,7 +12,7 @@ In NgRx, reducers take the current state and an action as input and return a new
 They should not modify the existing state but return a new state object.
 * */
 export interface AuthState {
-  token: string;
+  token: string ;
   expiredTokenAt: string;
   error: string;
   loading: boolean;
@@ -54,5 +54,27 @@ export const authReducer = createReducer(
     expiredTokenAt: '',
     loading: false,
     error
+  })),
+
+
+
+  on(AuthActions.logoutUser, state => ({
+    ...state,
+    loading: true,
+    error: ''
+  })),
+
+  on(AuthActions.logoutUserSuccess, (state, { message }) => ({
+    ...state,
+    token: '',
+    expiredTokenAt: '',
+    loading: false,
+    error: ''
+  })),
+
+  on(AuthActions.logoutUserFailure, (state, {error}) => ({
+    ...state,
+    error,
+    loading: false,
   }))
 )

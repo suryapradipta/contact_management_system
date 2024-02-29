@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Apollo, gql } from 'apollo-angular';
+import {Injectable} from '@angular/core';
+import {Apollo, gql} from 'apollo-angular';
 import {map, Observable} from "rxjs";
 
 @Injectable({
@@ -7,7 +7,8 @@ import {map, Observable} from "rxjs";
 })
 export class GraphqlService {
 
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo) {
+  }
 
   getAllContactsWithUsers(): Observable<any> {
     return this.apollo.query({
@@ -65,5 +66,21 @@ export class GraphqlService {
         }
       }
     });
+  }
+
+  logOutUser(token: string) {
+    return this.apollo.mutate<any>({
+      mutation: gql`
+        mutation logOutUser($token: String) {
+          logOutUser(token: $token) {
+            success
+            message
+          }
+        }
+      `,
+      variables: {
+        token
+      }
+    })
   }
 }

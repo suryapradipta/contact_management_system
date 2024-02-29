@@ -17,6 +17,7 @@ import { LoginComponent } from './pages/login/login.component';
 import {authReducer} from "./shared/state/auth/auth.reducer";
 import {AuthEffect} from "./shared/state/auth/auth.effect";
 import { AuthFeedbackComponent } from './pages/login/auth-feedback/auth-feedback.component';
+import { HeaderComponent } from './pages/header/header.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AuthFeedbackComponent } from './pages/login/auth-feedback/auth-feedback
     RegisterUserComponent,
     RegistrationResponseComponent,
     LoginComponent,
-    AuthFeedbackComponent
+    AuthFeedbackComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

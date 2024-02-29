@@ -40,4 +40,19 @@ export class AuthEffect {
         )
       ))
   ));
+
+  logout$ = createEffect(() => this.actions$.pipe(
+    ofType(AuthActions.logoutUser),
+    mergeMap(({token}) =>
+      this.authService.logOutUser(token).pipe(
+        map(response => AuthActions.logoutUserSuccess({
+          message: response.data.logOutUser.message
+        })),
+
+        catchError(error => of(
+          AuthActions.logoutUserFailure({error: error.message})
+        ))
+      )
+    )
+  ))
 }
