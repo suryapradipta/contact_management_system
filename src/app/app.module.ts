@@ -13,13 +13,19 @@ import {FormsModule} from "@angular/forms";
 import {userReducer} from "./shared/state/user/user.reducer";
 import {UserEffects} from "./shared/state/user/user.effect";
 import { RegistrationResponseComponent } from './pages/register-user/registration-response/registration-response.component';
+import { LoginComponent } from './pages/login/login.component';
+import {authReducer} from "./shared/state/auth/auth.reducer";
+import {AuthEffect} from "./shared/state/auth/auth.effect";
+import { AuthFeedbackComponent } from './pages/login/auth-feedback/auth-feedback.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactListComponent,
     RegisterUserComponent,
-    RegistrationResponseComponent
+    RegistrationResponseComponent,
+    LoginComponent,
+    AuthFeedbackComponent
   ],
   imports: [
     BrowserModule,
@@ -27,10 +33,12 @@ import { RegistrationResponseComponent } from './pages/register-user/registratio
     GraphQLModule,
     HttpClientModule,
     StoreModule.forRoot({
-      user: userReducer
+      user: userReducer,
+      auth: authReducer
     }, {}),
     EffectsModule.forRoot([
-      UserEffects
+      UserEffects,
+      AuthEffect
     ]),
     FormsModule
   ],

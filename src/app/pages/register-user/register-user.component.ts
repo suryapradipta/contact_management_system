@@ -16,9 +16,6 @@ export class RegisterUserComponent {
   constructor(private store: Store<AppState>) { }
 
   onSubmit(): void {
-    console.log(this.username)
-    console.log(this.name)
-    console.log(this.password)
     this.store.dispatch(UserActions.registerUser({ username: this.username, name: this.name, password: this.password }));
   }
 }

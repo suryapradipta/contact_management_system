@@ -47,4 +47,23 @@ export class GraphqlService {
       }
     });
   }
+
+  loginUser(username: string, password: string) {
+    return this.apollo.query<any>({
+      query: gql`
+        query loginUser($request: LoginUserRequest) {
+          loginUser(request: $request) {
+            token,
+            expiredTokenAt
+          }
+        }
+      `,
+      variables: {
+        request: {
+          username,
+          password
+        }
+      }
+    });
+  }
 }
