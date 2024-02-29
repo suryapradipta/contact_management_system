@@ -10,20 +10,28 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { RegisterUserComponent } from './pages/register-user/register-user.component';
 import {FormsModule} from "@angular/forms";
+import {userReducer} from "./shared/state/user/user.reducer";
+import {UserEffects} from "./shared/state/user/user.effect";
+import { RegistrationResponseComponent } from './pages/register-user/registration-response/registration-response.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactListComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    RegistrationResponseComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     GraphQLModule,
     HttpClientModule,
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([]),
+    StoreModule.forRoot({
+      user: userReducer
+    }, {}),
+    EffectsModule.forRoot([
+      UserEffects
+    ]),
     FormsModule
   ],
   providers: [],

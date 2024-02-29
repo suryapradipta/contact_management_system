@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import {RegisterUserRequest} from "../../shared/models/register-user-request.model";
 import {Store} from "@ngrx/store";
-import * as UserActions from '../../shared/state/user.action';
+import * as UserActions from '../../shared/state/user/user.action';
 import {AppState} from "../../shared/state/app.state";
 
 @Component({
