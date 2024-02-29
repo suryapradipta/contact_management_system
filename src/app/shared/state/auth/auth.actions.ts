@@ -9,6 +9,7 @@ Trigger State Changes: They trigger state changes in the NgRx store, allowing re
 Payloads for Additional Data: Actions can carry payload data, providing additional information about the event.
 * */
 export const loginUser = createAction(
+  //[Feature] ActionDescription
   '[Auth] Login User',
   props<{ username: string, password: string }>()
 );

@@ -27,6 +27,7 @@ export class ContactListComponent implements OnInit {
       // tap for logging, debugging, side effects
       tap(contacts => console.log('ALL CONTACTS: ', contacts)),
 
+      // map to formatting the data
       map(contacts => contacts
         .filter(contact => contact.email && contact.email.includes('@'))
         .map(contact => ({
@@ -40,13 +41,6 @@ export class ContactListComponent implements OnInit {
       // filter((contacts) => contacts.every(contact => contact.email.includes('@'))),
       tap(validContacts => console.log('VALID & TRANSFORMED CONTACTS:', validContacts)),
 
-      /*// map to formatting the data
-      map(validContacts => validContacts.map(contact => ({
-        fullName: `${contact.firstName} ${contact.lastName}`,
-        email: contact.email,
-        phone: contact.phone,
-        username: contact.user.username
-      })))*/
     ).subscribe((transformedContacts) => {
       this.contacts = transformedContacts;
       console.log(this.contacts)
